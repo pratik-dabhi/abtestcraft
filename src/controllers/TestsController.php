@@ -154,7 +154,7 @@ class TestsController extends Controller
         $this->requirePermission('abtestcraft:manageTests');
 
         $request = Craft::$app->getRequest();
-        $testId = $request->getBodyParam('testId');
+        $testId = (int) $request->getBodyParam('testId');
 
         if ($testId) {
             $test = ABTestCraft::getInstance()->tests->getTestById($testId);
