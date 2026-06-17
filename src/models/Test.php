@@ -65,7 +65,7 @@ class Test extends Model
             [['goalType'], 'in', 'range' => [self::GOAL_PHONE, self::GOAL_FORM, self::GOAL_PAGE, self::GOAL_EMAIL, self::GOAL_DOWNLOAD]],
             [['goalValue'], 'string', 'max' => 500],
             [['winnerVariant'], 'in', 'range' => [self::VARIANT_CONTROL, self::VARIANT_VARIANT, null]],
-            [['handle'], 'match', 'pattern' => '/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/', 'message' => 'Handle must be lowercase, start with a letter, and contain only letters, numbers, and hyphens'],
+            [['handle'], 'match', 'pattern' => '/^[a-z][A-Za-z0-9]*(?:-[A-Za-z0-9]+)*$/', 'message' => 'Handle must start with a lowercase letter and contain only letters, numbers, and optional hyphens (camelCase or kebab-case are supported)'],
             // Prevent same entry for control and variant
             [['variantEntryId'], 'compare', 'compareAttribute' => 'controlEntryId', 'operator' => '!=', 'message' => 'Control and variant entries must be different'],
             // Prevent circular reference - variant cannot be a descendant of control
