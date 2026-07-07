@@ -232,7 +232,7 @@ class TestsController extends Controller
         $this->requirePermission('abtestcraft:manageTests');
 
         $request = Craft::$app->getRequest();
-        $testId = $request->getRequiredBodyParam('testId');
+        $testId = (int) $request->getRequiredBodyParam('testId');
         $learnings = $request->getBodyParam('learnings');
 
         $test = ABTestCraft::getInstance()->tests->getTestById($testId);
@@ -342,7 +342,7 @@ class TestsController extends Controller
         $this->requireAcceptsJson();
         $this->requirePermission('abtestcraft:manageTests');
 
-        $testId = Craft::$app->getRequest()->getRequiredBodyParam('testId');
+        $testId = (int) Craft::$app->getRequest()->getRequiredBodyParam('testId');
         $test = ABTestCraft::getInstance()->tests->getTestById($testId);
 
         if (!$test) {
@@ -364,7 +364,7 @@ class TestsController extends Controller
         $this->requirePostRequest();
         $this->requirePermission('abtestcraft:manageTests');
 
-        $testId = Craft::$app->getRequest()->getRequiredBodyParam('testId');
+        $testId = (int) Craft::$app->getRequest()->getRequiredBodyParam('testId');
         $test = ABTestCraft::getInstance()->tests->getTestById($testId);
 
         if (!$test) {
@@ -398,7 +398,7 @@ class TestsController extends Controller
         $this->requirePostRequest();
         $this->requirePermission('abtestcraft:manageTests');
 
-        $testId = Craft::$app->getRequest()->getRequiredBodyParam('testId');
+        $testId = (int) Craft::$app->getRequest()->getRequiredBodyParam('testId');
         $test = ABTestCraft::getInstance()->tests->getTestById($testId);
 
         if (!$test) {
@@ -430,7 +430,7 @@ class TestsController extends Controller
         $this->requirePermission('abtestcraft:manageTests');
 
         $request = Craft::$app->getRequest();
-        $testId = $request->getRequiredBodyParam('testId');
+        $testId = (int) $request->getRequiredBodyParam('testId');
         $winner = $request->getBodyParam('winner');
 
         $test = ABTestCraft::getInstance()->tests->getTestById($testId);
