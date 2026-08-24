@@ -129,7 +129,7 @@ class Test extends Model
         if (!$this->controlEntryId) {
             return null;
         }
-        return Entry::find()->id($this->controlEntryId)->siteId($this->siteId)->one();
+        return Entry::find()->id($this->controlEntryId)->siteId($this->siteId)->status(null)->one();
     }
 
     /**
@@ -140,7 +140,7 @@ class Test extends Model
         if (!$this->variantEntryId) {
             return null;
         }
-        return Entry::find()->id($this->variantEntryId)->siteId($this->siteId)->one();
+        return Entry::find()->id($this->variantEntryId)->siteId($this->siteId)->status(null)->one();
     }
 
     /**
